@@ -6,15 +6,15 @@ dotenv.config();
 const POSTGRES_URI= process.env.NODE_ENV === 'test' ? 'sqlite:memory:' : process.env.DATABASE_URL;
 const user = require('./user-signUp');
 //----------------------------------------------------------------
-
-let sequelizeOptions = process.env.NODE_ENV === 'production' ? {
-  dialectOptions: {
+//you must add production and NODE_ENV in the heroku (sittings) first 
+//let sequelizeOptions = process.env.NODE_ENV === 'production' ? {
+  let sequelizeOptions= {
     ssl: {
       require: true,
       rejectUnauthorized: false,
     }
   }
-} : {};
+//} : {};
 //----------------------------------------------------------------
 let sequelize = new Sequelize(POSTGRES_URI,sequelizeOptions);
 
