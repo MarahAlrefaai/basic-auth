@@ -19,6 +19,7 @@ app.get('/',(req,res)=>{//this is a rout
 const PORT =process.env.PORT;
 app.use(errorHandler);
 db.sync().then(()=>{
+  //for heroku use 3000||port 
   app.listen(PORT||3000,()=>{
     console.log("server is listening ")
   })
