@@ -3,7 +3,7 @@
 const {Sequelize,DataTypes}=require('sequelize');
 const dotenv=require('dotenv');
 dotenv.config();
-const POSTGRES_URL= process.env.NODE_ENV === 'test' ? 'sqlite:memory:' : process.env.DATABASE_URL;
+const DATABASE_URL= process.env.NODE_ENV === 'test' ? 'sqlite:memory:' : process.env.DATABASE_URL;
 const user = require('./user-signUp');
 //----------------------------------------------------------------
 
@@ -16,7 +16,7 @@ let sequelizeOptions = process.env.NODE_ENV === 'production' ? {
   }
 } : {};
 //----------------------------------------------------------------
-let sequelize = new Sequelize(POSTGRES_URL,sequelizeOptions);
+let sequelize = new Sequelize(DATABASE_URL,sequelizeOptions);
 
 
 
